@@ -2,7 +2,7 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource { // UIPickerViewDelegate클래스와 UIPickerViewDataSource클래스 상속 추가
     let MAX_ARRAY_NUM = 10 // 이미지의 파일명을 저장할 배열의 최대 크기를 저장
-    let PICKER_VIEW_COLUMN = 1 // 피커 뷰의 열의 개수를 지정
+    let PICKER_VIEW_COLUMN = 2 // 피커 뷰의 열의 개수를 지정
     let PICKER_VIEW_HEIGHT:CGFloat = 130 // 피커 뷰의 높이를 지정할 상수
     var imageArray = [UIImage?]()
     var imageFileName = [ "극한직업.jpg", "기생충.jpeg", "나랏말싸미.jpeg", "남산의부장들.jpeg", "돈.jpeg", "말모이.jpeg", "범죄도시.jpeg", "뺑반.jpeg", "악인전.jpeg", "엑시트.jpeg", ] // 이미지의 파일명을 저장할 배열
@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         lblImageFileName.text = imageFileName[0] // lblImageFileName레이블에 imageFileName배열의 첫 번째 파일명을 출력
         imageView.image = imageArray[0] // 이미지 뷰에 첫 번째 이미지가 나타남
     }
-
+    
     // 피커 뷰에게 컴포넌트의 수를 정수로 넘겨주는 델리게이트 메서드 피커 뷰의 컴포넌트는 피커 뷰에 표시되는 열의 개수를 의미
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return PICKER_VIEW_COLUMN
@@ -48,8 +48,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // 사용자가 피커 뷰의 룰렛에서 선택한 row값을 사용하여 imageFileName배열에서 row값에 해당하는 문자열을 가지고 아웃렛 변수인 lblImageFileName.text에 저장
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lblImageFileName.text = imageFileName[row]
-        imageView.image = imageArray[row] // 사용자가 피커 뷰의 룰렛에서 선택한 row 값을 사용해 imageArray배열에서 row 값에 해당하는 이미지를 가져옴
+        if (component == 0) {
+            lblImageFileName.text = imageFileName[row]
+        } else {
+            imageView.image = imageArray[row] // 사용자가 피커 뷰의 룰렛에서 선택한 row 값을 사용해 imageArray배열에서 row 값에 해당하는 이미지를 가져옴
+        }
     }
 }
 
