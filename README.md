@@ -1,4 +1,4 @@
 # swift
 swift study 🔥
 
-[깃랩 위키](http://devyhan93.ddns.net:30000/)
+[Git_Lab_Wiki_Swift](http://devyhan93.ddns.net:30000/Wiki/swift/wikis/Swift_Language)
