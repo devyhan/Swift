@@ -1,3 +1,7 @@
+/*
+    참조 : https://github.com/devyhan93/Swift/wiki/swift_syntex
+ */
+
 /*==========================================
             Constant, Variable
 ==========================================*/
@@ -49,12 +53,12 @@ someCharacter = "🌝"
 someCharacter = "가"
 someCharacter = "A"
 // someCharacter = "안돼요"
-print(someCharacter)
+someCharacter
 
 // String
 var someString: String = "문자열 입니다"
 someString = someString + " 뒤에 오는 문자열 입니다"
-print(someString)
+someString
 
 // someString = someCharacter
 // someDouble = someFloat
@@ -83,8 +87,9 @@ var someAnyObject: AnyObject = SomeClass()
 // someAnyObject = nil
 
 /*==========================================
-                Array
+            Collection Types
 ==========================================*/
+// Array
 var john: Array<String> = Array<String>()
 var john2: Array<Int> = []
 var john3: [Double] = Array<Double>()
@@ -107,3 +112,46 @@ john4
 john5
 john6
 
+// Dictionary
+// var anyDictionary: Dictionary<String, Any> = [String: Any]()
+// var anyDictionary: Dictionary <String, Any> = Dictionary<String, Any>()
+// var anyDictionary: Dictionary <String, Any> = [:]
+// var anyDictionary: [String: Any] = Dictionary<String, Any>()
+// var anyDictionary: [String: Any] = [String: Any]()
+// var anyDictionary: [String: Any] = [:]
+var anyDictionary = [String: Any]()
+
+anyDictionary["someKey"] = "100"
+anyDictionary["anotherKey"] = "value"
+
+anyDictionary
+
+// Set
+var integerSet: Set<Int> = Set<Int>()
+
+integerSet.insert(1)
+integerSet.insert(2)
+integerSet.insert(2)
+integerSet.insert(1)
+integerSet.insert(100)
+
+integerSet
+
+let setA: Set<Int> = [1, 2, 3, 4, 5]
+let setB: Set<Int> = [3, 4, 5, 6, 7]
+
+// 합집합
+let union: Set<Int> = setA.union(setB)
+union
+
+// 합집합 오름차순 정렬
+let sortedUnion: [Int] = union.sorted()
+sortedUnion
+
+// 교집합
+let intersection: Set<Int> = setA.intersection(setB)
+intersection
+
+// 차집합
+let subtracting: Set<Int> = setA.subtracting(setB)
+subtracting
