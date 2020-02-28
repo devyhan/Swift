@@ -155,3 +155,27 @@ intersection
 // 차집합
 let subtracting: Set<Int> = setA.subtracting(setB)
 subtracting
+
+/*==========================================
+                Function
+==========================================*/
+
+func greating(friend: String, me: String = "me"){
+    print("Hello \(friend)! I'm \(me)")
+}
+
+greating(friend: "john")
+
+func ageing(friend: String, age: Int = 20){
+    print("My Name is \(friend), \(age) years old!")
+}
+
+func myName() {
+    print("조요한")
+}
+
+greating(friend: "조요한")
+ageing(friend: "john")
+myName()
+
+
