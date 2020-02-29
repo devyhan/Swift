@@ -8,7 +8,6 @@
 // Constant
 let constant:Int = 2
 // constant = 1
-
 let sum: Int
 let inputA: Int = 100
 let inputB: Int = 200
@@ -29,16 +28,13 @@ someBool
 someBool = false
 // someBool = 0
 // someBool = 1
-
 // Int
 var someInt: Int = -100
 // someInt = 100.1
-
 //UInt
 var someUInt: UInt = 100
 // someUInt = -100
 // someUInt = someInt
-
 // Float
 var someFloat: Float = 3.14
 someFloat = 3
@@ -62,7 +58,6 @@ someString
 
 // someString = someCharacter
 // someDouble = someFloat
-
 /*==========================================
            Any, AnyObject, nil
 ==========================================*/
@@ -72,20 +67,16 @@ someAny = "어떤 타입도 수용 가능하다"
 someAny = 123.12
 
 // let someDouble: String = "타입을 지정해줘야합니다"
-
 // AnyObject
 class SomeClass {}
 var someAnyObject: AnyObject = SomeClass()
 
 // someAnyObject = 123.12
-
 // nil
 // var someAny: Any = 100
 // var someAnyObject: AnyObject = SomeClass()
-
 // someAny = nil
 // someAnyObject = nil
-
 /*==========================================
             Collection Types
 ==========================================*/
@@ -178,4 +169,20 @@ greating(friend: "조요한")
 ageing(friend: "john")
 myName()
 
+// 데이터 타입함수
+var someFunction: (String, String) -> Void = greating(friend:me:)
 
+someFunction("요한", "john")
+someFunction("요한2", "john2")
+
+// 가변 매개변수, 전달인자 레이블 활용
+/*
+ to, from = 전달인자 레이블
+ me, friends = 매개변수
+ */
+// 함수 내부에서는 매개변수를 사용
+func sayHelloToFriends(to me: String, from friends: String) -> String {
+    return "Hello \(friends)! I'm \(me)!"
+}
+// 함수 외부에서는 전달인자 레이블을 사용
+sayHelloToFriends(to: "yhan", from: "devyhan93")
