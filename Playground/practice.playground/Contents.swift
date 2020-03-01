@@ -186,3 +186,89 @@ func sayHelloToFriends(to me: String, from friends: String) -> String {
 }
 // 함수 외부에서는 전달인자 레이블을 사용
 sayHelloToFriends(to: "yhan", from: "devyhan93")
+
+/*==========================================
+            if-else, switch
+==========================================*/
+// if-else
+let someInteger = 100
+
+if someInteger < 100 {
+    print("100 미만")
+} else if someInteger > 100 {
+    print("100 초과")
+} else {
+    print("100")
+} // 100
+
+// 스위프트의 조건에는 항상 Bool 타입이 들어와야 합니다.
+// someInteger는 Bool 타입이 아닌 Int 타입이기 때문에
+// 컴파일 오류가 발생합니다.
+//if someInteger { }
+
+// switch
+// 범위 연산자를 활용하면 더욱 쉽고 유용합니다
+switch someInteger {
+case 0:
+    print("zero")
+case 1..<100:
+    print("1~99")
+case 100:
+    print("100")
+case 101...Int.max:
+    print("over 100")
+default:
+    print("unknown")
+} // 100
+
+// 정수 외의 대부분의 기본 타입을 사용할 수 있습니다
+switch "yagom" {
+case "jake":
+    print("jake")
+case "mina":
+    print("mina")
+case "yhan":
+    print("yhan!!")
+default:
+    print("unknown")
+}
+
+/*==========================================
+        for-in, switch, repeat-while
+==========================================*/
+for i in 1...10 {
+    print(i)
+}
+
+var i = 1
+while i <= 10 {
+    print(i)
+    i += 1
+}
+
+repeat {
+    print(i)
+    i += 1
+} while i <= 10
+
+
+var integers = [1, 2, 3]
+let people = ["yagom": 10, "eric": 15, "mike": 12]
+
+for integer in integers {
+    print(integer)
+}
+
+// Dictionary의 item은 key와 value로 구성된 튜플 타입입니다
+for (name, age) in people {
+    print("\(name): \(age)")
+}
+
+while integers.count > 1 {
+    integers.removeLast()
+}
+
+
+repeat {
+    integers.removeLast()
+} while integers.count > 0
