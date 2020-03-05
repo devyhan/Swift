@@ -253,7 +253,7 @@ repeat {
 
 
 var integers = [1, 2, 3]
-let people = ["yagom": 10, "eric": 15, "mike": 12]
+let people = ["yhan": 10, "eric": 15, "mike": 12]
 
 for integer in integers {
     print(integer)
@@ -272,3 +272,47 @@ while integers.count > 1 {
 repeat {
     integers.removeLast()
 } while integers.count > 0
+
+/*==========================================
+                class
+==========================================*/
+
+class Student{
+    // 가변 프로퍼티
+    var name: String = "unknown"
+    
+    // 키워드도 `로 묶어주면 이름으로 사용 가능
+    var `class`: String = "Swift"
+    
+    // 타입 메서드
+    class func selfIntroduce() {
+        print("학생 타입 입니다.")
+    }
+    
+    // 인스턴스 메서드
+    // self는 인스턴스 자신을 지칭하며, 몇몇 경우를 제외하고 사용은 선택사항
+    func selfIntroduce() {
+        print("저는 \(self.class)반 \(name)입니다.")
+    }
+}
+
+// 타입 메서드 사용
+Student.selfIntroduce() // 학생 타입 입니다.
+// Student class의 메서드인 selfInteroduce()를 호출
+
+// 인스턴스 생성
+var yhan: Student = Student()
+yhan.name = "요한"
+yhan.class = "스위프트"
+yhan.selfIntroduce()
+dump(yhan.name)
+
+// 인스턴스 생성
+let jina: Student = Student()
+jina.name = "조지나"
+jina.class = "급식"
+
+jina.name = "지나"
+jina.selfIntroduce()
+// 불변 인스턴스를 생성하면 기존 프로퍼티에 저장된 값을 그대로 가져온다
+
