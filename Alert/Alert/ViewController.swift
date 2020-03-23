@@ -50,7 +50,40 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func btnLampRemove(_ sender: UIButton) {
+        let lampRemoveAlert = UIAlertController(
+            title: "램프 제거",
+            message: "램프를 제거하시겠습니까 ?",
+            preferredStyle: UIAlertController.Style.alert
+        ) // UIAlertController를 생성
+        let offAction = UIAlertAction(
+            title: "아니요, 끕니다(off)",
+            style: UIAlertAction.Style.default,
+            handler: {
+                ACTION in self.lampImg.image = self.imgOff
+                self.isLampOn=false
+            }
+        ) // UIAlertAction을 생성한다, 전구를 꺼야하므로 handler에 {,}를 넣어 추가작업
+        let onAction = UIAlertAction(
+            title: "아니요, 켭니다(on)",
+            style: UIAlertAction.Style.default
+        ){
+            ACTION in self.lampImg.image = self.imgOn
+            self.isLampOn=true
+        } // UIAlertAction을 생성, 전구를 켜는 동작을 추가한다, handler에 {,}를 넣어 추가작업을 할 수 있지만, 이번에는 핸들러 매개변수를 삭제하고 뒤쪽에 {,}를 넣는 방법을 이용 두 방법 모두 에러없이 동작한다
+        let removeAction = UIAlertAction(
+            title: "네, 제거합니다",
+            style: UIAlertAction.Style.destructive,
+            handler: {
+                ACTION in self.lampImg.image = self.imgRemove
+                self.isLampOn=false
+            }
+        ) // UIAlertAction을 추가로 생성한 후 전구를 제거하는 동작을 추가
+        
+        lampRemoveAlert.addAction(offAction)
+        lampRemoveAlert.addAction(onAction)
+        lampRemoveAlert.addAction(removeAction)
+        // 생성된 offAction, onAction, removeAction을 얼럿에 추가
+        present(lampRemoveAlert, animated: true, completion: nil) // present메서드를 실행
     }
-    
 }
 
