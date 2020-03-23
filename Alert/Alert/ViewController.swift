@@ -27,6 +27,27 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func btnLampOff(_ sender: UIButton) {
+        if (isLampOn==true) {
+            let lampOffAlert = UIAlertController(
+                title: "램프 끄기",
+                message: "램프를 끄시겠습니까?",
+                preferredStyle: UIAlertController.Style.alert
+            ) // UIAlertController를 생성
+            let offAction = UIAlertAction(
+                title: "네",
+                style: UIAlertAction.Style.default,
+                handler: {
+                    ACTION in self.lampImg.image = self.imgOff
+                    self.isLampOn=false
+            }) // UIAlertAction을 생성, 전구를 꺼야 하므로 핸들러에 중괄호 {,}를 넣어 추가적으로 작업을 진행, 반드시 self를 붙여야 에러가 발생하지 않는다.
+            let cancelAction = UIAlertAction(title: "아니오", style: UIAlertAction.Style.default, handler: nil) // UIAlertAction을 추가로 생성, 특별한 동작을 하지 않을 경우에는 핸들러를 nill로한다.
+            
+            lampOffAlert.addAction(offAction)
+            lampOffAlert.addAction(cancelAction)
+            // 생성된 offAction, cancelAction을 얼럿에 추가
+            
+            present(lampOffAlert, animated: true, completion: nil) // persent메서드를 실행
+        }
     }
     @IBAction func btnLampRemove(_ sender: UIButton) {
     }
