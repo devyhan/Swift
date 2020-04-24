@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  HelloWorld
+//  UIButton
 //
 //  Created by 요한 on 2020/04/23.
 //  Copyright © 2020 요한. All rights reserved.

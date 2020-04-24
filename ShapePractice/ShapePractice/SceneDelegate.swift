@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  HelloWorld
+//  ShapePractice
 //
-//  Created by 요한 on 2020/04/23.
+//  Created by 요한 on 2020/04/24.
 //  Copyright © 2020 요한. All rights reserved.
 //
 
