@@ -101,7 +101,5 @@ class ViewController: UIViewController {
         let title = sender.titleForSegment(at: index)
         selectSegmentLable.text = title
     }
-    
-    
 }
 
