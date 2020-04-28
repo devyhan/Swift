@@ -25,7 +25,6 @@ class ViewController: UIViewController {
         }
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,22 +44,13 @@ class ViewController: UIViewController {
         view.addSubview(button)
     }
     
-
-//    alertController.addTextField
-//    alertController.textFields?.first
-    
-    
     @objc func showAlert(_ sender: Any) {
         
         let alertController = UIAlertController(title: "", message: "카운트 추가", preferredStyle: .alert)
         
         alertController.addTextField {
             $0.placeholder = "Enter Int"
-            
         }
-            
-        
- 
         
         let okAction = UIAlertAction(title: "Add Count", style: .default) {_ in
           var addValue = 1
@@ -72,6 +62,7 @@ class ViewController: UIViewController {
            }
            self.count += addValue
            print("Add count \(addValue)")
+            
         }
         let returnAction = UIAlertAction(title: "Return", style: .default) {_ in
             self.counterLabel.text = String(self.oldNum)
@@ -84,46 +75,11 @@ class ViewController: UIViewController {
             
         }
 
-//                alertController.addAction(okAction)
-//                alertController.addAction(cancelAction)
-//                alertController.addAction(deleteAction)
         for action in [okAction, deleteAction, cancelAction, returnAction] {
             alertController.addAction(action)
         }
         
         present(alertController, animated: true)
     }
-            
-
-    
-    // alertController.addTextField
-    // alertController.textFields?.first
-    
-    
-//    @IBAction func showAlert(_ sender: Any) {
-//        let alertController = UIAlertController(title: "", message: "카운트 추가", preferredStyle: .alert) // alert
-//        let okAction = UIAlertAction(title: "Add Count", style: .default) {_ in
-//
-//        }
-//        let deleteAction = UIAlertAction(title: "Reset", style: .destructive) {_ in
-//
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {_ in
-//
-//        }
-        
-//        alertController.addAction(okAction)
-//        alertController.addAction(cancelAction)
-//        alertController.addAction(deleteAction)
-        
-//        for action in [okAction, cancelAction, deleteAction] {
-//            alertController.addAction(action)
-//        }
-        
-        // 두개까지는 좌우로 , 세개부터는 세로
-        // 스타일 -> .cancle은 1개만 넣을 수 있다.
-//        present(alertController, animated: true)
-//    }
-    
 }
 
