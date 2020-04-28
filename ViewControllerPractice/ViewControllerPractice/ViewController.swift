@@ -8,50 +8,47 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController { // 상속받는 자식클래스에서 재정의 방지
     
-    let quantityLabel = UILabel()
-
-
+    let counterLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         
-        setupLabel()
-        setupButton()
-    }
-
-    func setupLabel() {
-        quantityLabel.frame = CGRect(x: 140, y: 100, width: 80, height: 30)
-        quantityLabel.text = "0"
-        quantityLabel.textColor = .darkText
-        quantityLabel.textAlignment = .center
-        view.addSubview(quantityLabel)
-    }
-    
-    func setupButton() {
-        let button = UIButton()
-        button.frame = CGRect(x: 130, y: 200, width: 100, height: 30)
-        button.setTitle("Button", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.4)
-        button.addTarget(self, action: #selector(increaseQuantity), for: .touchUpInside)
+        counterLabel.text = "0"
+        counterLabel.font = .preferredFont(forTextStyle: .title2)
+        counterLabel.frame = CGRect(x: 0, y: 150, width: 100, height: 40)
+        counterLabel.center.x = view.center.x // counterLabel의 x축을 cneter로 정렬
+        counterLabel.textAlignment = .center
+        view.addSubview(counterLabel)
+        
+        let button = UIButton(type: .system)
+        button.setTitle("Present", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title3)
+        button.sizeToFit()
+        button.center = view.center
+        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         view.addSubview(button)
     }
     
-    @objc func increaseQuantity() {
-        guard let text = quantityLabel.text,
-            let quantity = Int(text)
-            else { return }
-
-//        let VC = BViewController()
-//        present(VC, animated: false)
-//        quantityLabel.text = String(quantity + 3)
+    @objc private func didTapButton(_ sender: Any) {
+        guard let count = Int(counterLabel.text ?? "") else { return }
         
-        if let VC = presentingViewController?.presentingViewController as? BViewController {
-          quantityLabel.text = String(quantity + 3)
-        }
+        let bVC = BViewController()
+        bVC.countLabel.text = String(count + 3)
         
+        bVC.presentationController?.delegate = self
+        present(bVC, animated: true)
     }
 }
 
+extension ViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        guard let bVC = presentationController.presentedViewController as? BViewController,
+          let currentCount = Int(bVC.countLabel.text ?? "0")
+          else { return }
+
+        countLabel.text = String(currentCount + 1)
+    }
+}
