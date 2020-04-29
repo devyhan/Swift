@@ -49,6 +49,6 @@ extension ViewController: UIAdaptivePresentationControllerDelegate {
           let currentCount = Int(bVC.countLabel.text ?? "0")
           else { return }
 
-        countLabel.text = String(currentCount + 1)
+       
     }
 }

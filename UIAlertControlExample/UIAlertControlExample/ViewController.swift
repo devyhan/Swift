@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     
     let counterLabel = UILabel()
     var oldNum: Int = 0
+    var alertLabel: Int = 0 {
+        willSet {
+            alertLabel = newValue
+        }
+    }
     var count: Int = 0 {
         didSet {
             oldNum = oldValue
@@ -30,7 +35,7 @@ class ViewController: UIViewController {
 
         counterLabel.text = String(self.count)
         counterLabel.font = .preferredFont(forTextStyle: .largeTitle)
-        counterLabel.frame = CGRect(x: 0, y: 150, width: 100, height: 100)
+        counterLabel.frame = CGRect(x: 0, y: 50, width: 1000, height: 100)
         counterLabel.center.x = view.center.x // counterLabel의 x축을 cneter로 정렬
         counterLabel.textAlignment = .center
         view.addSubview(counterLabel)
@@ -46,10 +51,15 @@ class ViewController: UIViewController {
     
     @objc func showAlert(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "", message: "카운트 추가", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "\(alertLabel)", message: "카운트 추가", preferredStyle: .alert)
         
         alertController.addTextField {
             $0.placeholder = "Enter Int"
+            $0.keyboardType = .numberPad
+            $0.text = "123"
+            $0.addTarget(self, action: #selector(self.editingChanged), for: .editingChanged)
+            $0.addTarget(self, action: #selector(self.editingDidBegin(_:)), for: .editingDidBegin)
+            $0.addTarget(self, action: #selector(self.editingDidEnd(_:)), for: .editingDidEnd)
         }
         
         let okAction = UIAlertAction(title: "Add Count", style: .default) {_ in
@@ -80,6 +90,22 @@ class ViewController: UIViewController {
         }
         
         present(alertController, animated: true)
+        
+
+    } // end showAlert
+    
+    @objc func editingChanged(_ sender: Any) {
+        print(sender)
+    }
+    
+    @objc func editingDidBegin(_ sender: Any) {
+        print("editingDidBegin")
+        counterLabel.textColor = .systemBlue
+    }
+    
+    @objc func editingDidEnd(_ sender: Any) {
+        print("editingDidEnd")
+        counterLabel.textColor = .systemRed
     }
 }
 
