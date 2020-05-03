@@ -49,9 +49,5 @@ class ViewController: UIViewController {
         let frame = CGRect(x: 40, y: 220, width: 300, height: 40)
         setupCommonAttributes(for: textPwField, holder: "비밀번호를 입력하세요", frame:frame, secure: true)
     }
-
-    
-    
-    
     
 }

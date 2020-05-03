@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         
         let alertController = UIAlertController(title: "\(alertLabel)", message: "카운트 추가", preferredStyle: .alert)
         
+        
         alertController.addTextField {
             $0.placeholder = "Enter Int"
             $0.keyboardType = .numberPad
