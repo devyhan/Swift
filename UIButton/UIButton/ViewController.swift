@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         myButton.setTitle("Button highlighted", for: .highlighted) // .nomal, 눌렀을때, 뗏을때 마다의 상태를 지정할 수 있다.
         view.addSubview(myButton)
         
-        myButton.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
+//        myButton.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
     }
 
    @objc func buttonDidTap(_sender: Any) {

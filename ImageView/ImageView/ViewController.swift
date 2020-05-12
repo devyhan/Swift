@@ -12,7 +12,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         imgOn = UIImage(named: "lamp_on.png") // imgOn에 "lamp_on.png"이미지 할당
-        imgOff = UIImage(named: "lamp_off.png") // imgOn에 "lamp_of.png"이미지 할당
+        imgOff = UIImage(named: "l amp_off.png") // imgOn에 "lamp_of.png"이미지 할당
         
         imgView.image = imgOn
     }

@@ -29,6 +29,9 @@ class AlertViewController: UIViewController {
         titleLabel.frame = CGRect(x: view.center.x - 25 , y: view.center.y - 150, width: 100, height: 100)
         titleLabel.textColor = .white
         
+        
+        
+        
         subtitleLabel.text = "Message"
         subtitleLabel.frame = CGRect(x: view.center.x - 15 , y: view.center.y - 100, width: 100, height: 100)
         subtitleLabel.textColor = .white
