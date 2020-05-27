@@ -42,7 +42,7 @@ protocol CustomTextFieldDelegate: class {
 class ViewController: UIViewController {
     
     var loginStatus: Bool = false
-//    var userString: String = "None"
+    //    var userString: String = "None"
     
     let idFiled = UITextField()
     let pwFiled = UITextField()
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     let idAlert = UILabel()
     let pwAlert = UILabel()
     
-//    textField.delegate = self
+    //    textField.delegate = self
     
     // MARK: View Life Cycle
     let userInput = UIView()
@@ -101,6 +101,17 @@ class ViewController: UIViewController {
         
         view.addSubview(uiTextFiled)
     }
+    
+    func foundationView(for fdView: UIView, frame: CGRect, backgroundColor: UIColor) {
+        fdView.backgroundColor = backgroundColor
+        fdView.frame = frame
+        
+        view.addSubview(fdView)
+    }
+    
+    
+    
+    
     
     func logoImageView() {
         let imgView = UIImageView()
@@ -185,14 +196,14 @@ class ViewController: UIViewController {
     
     func checkStatus() {
         // User Default
-        let temp = UserDefaults.standard.bool(forKey: UserInfo.userKey)
-        print("UserDefaults Value : ", temp)
-        if temp == true {
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                let sceneDelegate = windowScene.delegate as? SceneDelegate
-                sceneDelegate?.window?.rootViewController = SecondViewController()
-            }
-        }
+//        let temp = UserDefaults.standard.bool(forKey: UserInfo.userKey)
+//        print("UserDefaults Value : ", temp)
+//        if temp == true {
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+//                let sceneDelegate = windowScene.delegate as? SceneDelegate
+//                sceneDelegate?.window?.rootViewController = SecondViewController()
+//            }
+//        }
     }
     
     
@@ -236,7 +247,7 @@ class ViewController: UIViewController {
         
         loginStatus = true
         UserDefaults.standard.set(loginStatus, forKey: UserInfo.userKey)
-//        UserDefaults.standard.set(userString, forKey: UserInfo.userKey)
+        //        UserDefaults.standard.set(userString, forKey: UserInfo.userKey)
         
         let vc = SecondViewController()
         vc.modalPresentationStyle = .overFullScreen
@@ -270,29 +281,25 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     
-       func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-               print(textField.text!,range.location, range.length)
-
-               return true
-
-           }
-
-
-
-       
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        print(textField.text!,range.location, range.length)
+        
+        return true
+        
+    }
     
 }
 
 
-/*
- layer.border
- UIRectEdge.all - 전체
- UIRectEdge.top - 상단
- UIRectEdge.bottom - 하단
- UIRectEdge.left - 왼쪽
- UIRectEdge.right - 오른쪽
- */
+
+// MARK: - CALayer addBorder
+//UIRectEdge.all - 전체
+//UIRectEdge.top - 상단
+//UIRectEdge.bottom - 하단
+//UIRectEdge.left - 왼쪽
+//UIRectEdge.right - 오른쪽
+
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
@@ -318,8 +325,6 @@ extension CALayer {
         }
     }
 }
-
-
 
 
 //        imgView.backgroundColor = .red

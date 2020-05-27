@@ -1,26 +1,21 @@
 //
-//  CustomTextField.swift
+//  customTextField.swift
 //  DelegatePractice
 //
-//  Created by 요한 on 2020/05/13.
+//  Created by 요한 on 2020/05/17.
 //  Copyright © 2020 요한. All rights reserved.
 //
 
 import UIKit
 
-
-
-class CustomTextField: UITextField {
-    weak var textFieldDelegate: CustomTextFieldDelegate?
+class customTextField: UITextField {
     
-    override var textColor: UIColor? {
-        get { return super.textColor }
+
+    override var backgroundColor: UIColor? {
+        get { super.backgroundColor }
         set {
-            let checkText = textFieldDelegate?.checkForText(newValue)
-            let newText = checkText ?? newValue ?? .gray
-    
-            super.textColor = newText
-            print("Text Color: ", newText)
+            super.textColor = newColor
         }
     }
+
 }
