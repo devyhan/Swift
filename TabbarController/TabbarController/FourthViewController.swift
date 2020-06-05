@@ -14,7 +14,7 @@ class FourthViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "ForthViewController"
-        navigationItem.title
+        
         
         view.backgroundColor = .black
     }

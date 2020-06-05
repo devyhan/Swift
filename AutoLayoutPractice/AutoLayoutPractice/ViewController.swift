@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         
         animationButton.addTarget(self, action: #selector(moveItem(_:)), for: .touchUpInside)
         
         moveView.backgroundColor = .green

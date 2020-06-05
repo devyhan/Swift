@@ -174,7 +174,7 @@ class ViewController: UIViewController {
         view.addSubview(pwView)
         view.addSubview(SinginButton)
     }
-    
+     
     
     func userIdAlert() {
         let usertIdAertView = UIView()

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
         let formatter = DateFormatter() // 날짜를 출력하기 위해 DataFormatter라는 클래스 상수 formatter를 선언
         formatter.dateFormat = "yyyy-MM-dd HH:mm EEE" // dataFormat설정 "년-월-알 시:분:초 요일"
-        
+        print(formatter.dateFormat)
         lblPickerTime.text = formatter.string(from: datePickerView.date)
         // 데이트 피커에서 선택한 날짜를 설정한 포멧대로 String메서드를 사용하여 문자열로 변환 lblPickerTime = "선택시간: " + "문자열로 변환한 선택한 날짜"
     }
@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         
         let formatter = DateFormatter() // 날짜를 출력하기 위해서 DateFormatter라는 클래스 상수 formatter를 선언
         formatter.dateFormat = "yyyy-MM-dd HH:mm EEE" // formatter의 dateFormat 속성 설정
+        print(formatter.string(from: date as Date))
         lblCurrentTime.text = formatter.string(from: date as Date)
         // formatter.string(date)는 피커 뷰에서 선택한 날짜를 formatter의 dateFormat에서 설정한 포맷대로 string메서드를 사용하여 문자열로 변환
         

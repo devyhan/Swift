@@ -10,14 +10,12 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override func viewDidLoad() { 
         super.viewDidLoad()
 
         navigationItem.title = "Third View Controller"
         
         let barButtonItem1 = UIBarButtonItem(title: "Next2", style: .plain, target: self, action: #selector(pushViewController))
-        
-        
         
         view.backgroundColor = .yellow
         

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "FirstVC" // nav title
-        navigationItem.title = "FirstVC Ttitle" // 두가지 모두 네비게이션 타이틀을 나타내주는데, 더 명확하게 작성하려면 이것을 사용
+        navigationItem.title = "FirstVC Ttitle" // 두가지 모두 네비게이션 타이틀을 나타내t주는데, 더 명확하게 작성하려면 이것을 사용
         
         // iOS 11 이상만 LargeTtile 가능
 //        navigationController?.navigationBar.prefersLargeTitles = true // 보통 Navigation Controller자체에 설정함(SeenDelegate.swift)
